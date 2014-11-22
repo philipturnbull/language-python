@@ -271,6 +271,7 @@ instance Pretty (Slice a) where
    pretty (SliceProper { slice_lower = lower, slice_upper = upper, slice_stride = stride })
       = pretty lower <> colon <> pretty upper <> (maybe empty (\s -> colon <> pretty s) stride)
    pretty (SliceExpr { slice_expr = e }) = pretty e
+   pretty (SliceEllipsis {}) = text "..."
 
 instance Pretty (Op a) where
    pretty (And {}) = text "and"
